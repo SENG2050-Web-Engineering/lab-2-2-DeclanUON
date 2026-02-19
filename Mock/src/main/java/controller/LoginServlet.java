@@ -20,13 +20,13 @@ public class LoginServlet extends HttpServlet {
         if (username == null || username.isEmpty()
                 || password == null || password.isEmpty()) {
 
-            request.setAttribute("error", "All fields are required.");
+            request.setAttribute("error", "?");
             request.getRequestDispatcher("login.jsp")
-                   .forward(request, response);
-                    
+                    .forward(request, response);
+
         }
 
-        if ("student".equals(username) && "1234".equals(password)) {
+        if ("student".equals(username) && "1".equals(password)) {
 
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             request.setAttribute("error", "Invalid username or password.");
             request.getRequestDispatcher("login.jsp")
-                   .forward(request, response);
+                    .forward(request, response);
         }
     }
+}

@@ -13,7 +13,7 @@ public class SemesterServlet extends HttpServlet {
         String semester = request.getParameter("semester");
 
         if (semester == null || semester.isEmpty()) {
-            request.setAttribute("error");
+            request.setAttribute("error", "?");
             request.getRequestDispatcher("semester.jsp")
                     .forward(request, response);
             return;
